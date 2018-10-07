@@ -1,19 +1,39 @@
 from django.shortcuts import render
 
 def welcome(request):
-    return render(request, 'index.html', {'msg':'Hello World!'})
+	return render(request, 'index.html', {'msg':'Hello World!'})
 
 def restaurant_list(request):
 
-    context = {
-
-    }
-    return render(request, 'list.html', context)
+	rest_list = [
+		{
+			'restaurant_name': 'stack',
+			'food_type': 'burgers'
+		},
+		{
+			'restaurant_name': 'pf changs',
+			'food_type': 'Chinese'
+		},
+		{
+			'restaurant_name': 'Ashaz',
+			'food_type': 'Indian'
+		},
+	]
+	context = {
+				"my_list": rest_list,
+	}
+	return render(request, 'list.html', context)
 
 
 def restaurant_detail(request):
 
-    context = {
+	rest_detail = {
+		'restaurant_name': 'Maki',
+		'food_type': 'sushi'
+	}
 
-    }
-    return render(request, 'detail.html', context)
+	context = {
+				"my_object": rest_detail,
+
+	}
+	return render(request, 'detail.html', context)
